@@ -1,0 +1,9 @@
+# Local Python env
+.venv/
+
+# Local build artifacts (if you ever build docs again)
+docs/
+_output/
+
+# Node modules (if ever used)
+node_modules/

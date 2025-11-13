@@ -1,4 +1,0 @@
-jupyterlite-core
-jupyterlite-pyodide-kernel
-bash-kernel
-# Trigger build
