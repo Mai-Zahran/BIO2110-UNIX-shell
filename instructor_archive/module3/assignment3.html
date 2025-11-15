@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>assignment3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#assignment-3-pipes-filters-for-biomedical-vitals-data"
+id="toc-assignment-3-pipes-filters-for-biomedical-vitals-data">Assignment
+3 – Pipes &amp; Filters for Biomedical Vitals Data</a>
+<ul>
+<li><a href="#contents" id="toc-contents">Contents</a></li>
+<li><a href="#purpose-and-learning-outcomes"
+id="toc-purpose-and-learning-outcomes">1. Purpose and learning
+outcomes</a></li>
+<li><a href="#files-and-environment" id="toc-files-and-environment">2.
+Files and environment</a></li>
+<li><a href="#rules-about-collaboration-and-ai-tools"
+id="toc-rules-about-collaboration-and-ai-tools">3. Rules about
+collaboration and AI tools</a></li>
+<li><a href="#tasks-and-grading" id="toc-tasks-and-grading">4. Tasks and
+grading</a></li>
+<li><a href="#deliverables" id="toc-deliverables">5.
+Deliverables</a></li>
+<li><a href="#rubric-suggested" id="toc-rubric-suggested">6. Rubric
+(suggested)</a></li>
+<li><a href="#hints-and-common-pitfalls"
+id="toc-hints-and-common-pitfalls">7. Hints and common pitfalls</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1
+id="assignment-3-pipes-filters-for-biomedical-vitals-data">Assignment 3
+– Pipes &amp; Filters for Biomedical Vitals Data</h1>
+<blockquote>
+<p><strong>Type:</strong> Graded individual assignment<br />
+<strong>Suggested points:</strong> 20 points<br />
+<strong>Environment:</strong> Google Cloud Shell (BIO2110-UNIX-shell
+repo)<br />
+<strong>Related module:</strong> Module 3 – Pipes &amp; Filters</p>
+</blockquote>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#purpose-of-assignment-3">Purpose of Assignment 3</a></li>
+<li><a href="#learning-outcomes">Learning Outcomes</a></li>
+<li><a href="#files-and-data-you-will-use">Files and Data You Will
+Use</a></li>
+<li><a href="#task-1-simple-pipelines-on-vitalscsv">Task 1: Simple
+Pipelines on vitals.csv</a></li>
+<li><a href="#task-2-frequency-counts-and-top-k-queries">Task 2:
+Frequency Counts and Top-K Queries</a></li>
+<li><a href="#task-3-answering-biomedical-questions-with-pipelines">Task
+3: Answering Biomedical Questions with Pipelines</a></li>
+<li><a href="#task-4-ai-use-transparency--verification-log">Task 4:
+AI-Use Transparency &amp; Verification Log</a></li>
+<li><a href="#what-to-submit">What to Submit</a></li>
+<li><a href="#grading-and-rubric-overview">Grading and Rubric
+Overview</a></li>
+<li><a
+href="#academic-integrity-and-collaboration-for-this-assignment">Academic
+Integrity and Collaboration for This Assignment</a></li>
+</ul>
+<hr />
+<h2 id="purpose-and-learning-outcomes">1. Purpose and learning
+outcomes</h2>
+<p>This assignment checks that you can:</p>
+<ul>
+<li>Use <code>cat</code>, <code>head</code>, <code>tail</code>,
+<code>wc</code>, <code>cut</code>, <code>sort</code>, and
+<code>uniq</code> on real CSV files.</li>
+<li>Combine these tools into <strong>multi-step pipelines</strong> that
+answer specific questions.</li>
+<li>Explain, in words, why each step in a pipeline is needed.</li>
+<li>Use AI tools (if you choose) in a transparent, verifiable way by
+keeping a short AI-use &amp; verification log.</li>
+</ul>
+<p>After completing this assignment, you should feel confident reading,
+writing, and debugging basic Unix pipelines for biomedical-style tabular
+data.</p>
+<hr />
+<h2 id="files-and-environment">2. Files and environment</h2>
+<p>You will work in <strong>Google Cloud Shell</strong> using the
+BIO2110 UNIX repo.</p>
+<ul>
+<li>Cloud Shell: <a href="https://shell.cloud.google.com"
+class="uri">https://shell.cloud.google.com</a><br />
+</li>
+<li>Repo (browser view): <a
+href="https://github.com/Mai-Zahran/BIO2110-UNIX-shell"
+class="uri">https://github.com/Mai-Zahran/BIO2110-UNIX-shell</a></li>
+</ul>
+<ol type="1">
+<li><p>Open Cloud Shell and move into the Module 3 directory (if you
+have already cloned):</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> BIO2110-UNIX-shell/contents/module3</span></code></pre></div>
+<p>If you have not cloned the repo on this Cloud Shell account yet,
+run:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Mai-Zahran/BIO2110-UNIX-shell.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> BIO2110-UNIX-shell/contents/module3</span></code></pre></div></li>
+<li><p>The starter data bundle for this assignment includes (names may
+vary slightly depending on the final release):</p>
+<ul>
+<li><code>vitals_small.csv</code> — small sample for debugging and
+testing.</li>
+<li><code>vitals_large.csv</code> — larger vitals dataset for final
+answers.</li>
+<li><code>lab_logs.txt</code> — simulated lab log entries (for one
+task).</li>
+</ul></li>
+<li><p>Download the <strong>Assignment 3 worksheet</strong> (docx) from
+Brightspace/OpenLab. You will paste commands and write short answers in
+this document.</p></li>
+</ol>
+<blockquote>
+<p><strong>Important:</strong> Do <em>not</em> edit any of the CSV files
+by hand. All work should be done using command-line tools.</p>
+</blockquote>
+<hr />
+<h2 id="rules-about-collaboration-and-ai-tools">3. Rules about
+collaboration and AI tools</h2>
+<ul>
+<li>You may discuss general concepts with classmates (e.g., how
+<code>uniq -c</code> works), but the <strong>commands and explanations
+you submit must be your own</strong>.</li>
+<li>You may use AI tools (e.g., ChatGPT) to help you
+<strong>draft</strong> pipelines, but you must:
+<ul>
+<li>Write your own <strong>prompts</strong>,</li>
+<li>Check the AI’s output carefully,</li>
+<li>Document your use in a short <strong>AI-use &amp; verification
+log</strong> (Task 4).</li>
+</ul></li>
+<li>You may not paste the entire assignment prompt into an AI tool and
+copy answers without understanding them. That is considered academic
+dishonesty in this course.</li>
+</ul>
+<hr />
+<h2 id="tasks-and-grading">4. Tasks and grading</h2>
+<h3 id="task-1-count-and-sanity-check-4-pts">Task 1 – Count and sanity
+check (4 pts)</h3>
+<p>Use <code>vitals_large.csv</code> in
+<code>contents/module3</code>.</p>
+<ol type="1">
+<li><p>Use <code>wc -l</code> to find:</p>
+<ol type="a">
+<li>The total number of lines in <code>vitals_large.csv</code>.<br />
+</li>
+<li>The number of data rows (excluding the header).</li>
+</ol></li>
+<li><p>Use <code>head</code> and <code>tail</code> to:</p>
+<ul>
+<li>Show the header and first <strong>3</strong> data rows.</li>
+<li>Show the last <strong>3</strong> data rows.</li>
+</ul></li>
+<li><p>In your worksheet, record:</p>
+<ul>
+<li>The commands you ran.</li>
+<li>The numeric answers you obtained.</li>
+<li>One short sentence per command explaining what you checked<br />
+(e.g., “This confirms that the file has exactly one header line and
+50,000 data rows”).</li>
+</ul></li>
+</ol>
+<blockquote>
+<p><strong>Grading focus:</strong> correct commands, correct numbers,
+and clear explanations.</p>
+</blockquote>
+<hr />
+<h3 id="task-2-unique-tests-and-their-frequencies-6-pts">Task 2 – Unique
+tests and their frequencies (6 pts)</h3>
+<p>Again use <code>vitals_large.csv</code>.</p>
+<h4 id="a.-unique-test-names-2-pts">2a. Unique test names (2 pts)</h4>
+<p>Write a pipeline that prints all <strong>unique values</strong> of
+the <code>test</code> column (column #2), excluding the header, one per
+line, sorted alphabetically.</p>
+<ul>
+<li>Paste your final pipeline into the worksheet.</li>
+<li>In 2–3 sentences, explain how your pipeline:
+<ul>
+<li>Skips the header,</li>
+<li>Selects the correct column,</li>
+<li>Ensures uniqueness.</li>
+</ul></li>
+</ul>
+<p><em>(Tip: practice this first on <code>vitals_small.csv</code> to
+check your logic.)</em></p>
+<h4 id="b.-test-frequencies-and-top-5-tests-4-pts">2b. Test frequencies
+and top-5 tests (4 pts)</h4>
+<p>Write a pipeline that:</p>
+<ol type="1">
+<li>Counts how many times each test appears in
+<code>vitals_large.csv</code> (excluding the header), and<br />
+</li>
+<li>Prints the <strong>top 5</strong> tests in descending order of
+count.</li>
+</ol>
+<p>Your pipeline will likely include <code>tail -n +2</code>,
+<code>cut</code>, <code>sort</code>, <code>uniq -c</code>,
+<code>sort -nr</code>, and <code>head -n 5</code>.</p>
+<p>In your worksheet, provide:</p>
+<ul>
+<li><p>The full pipeline.</p></li>
+<li><p>The <strong>top-5 table</strong> it prints (copy from your
+terminal).</p></li>
+<li><p>Short answers to the following questions:</p>
+<ol type="1">
+<li>Which test is the most common, and how many times does it
+appear?<br />
+</li>
+<li>Why is <code>sort</code> placed <strong>before</strong>
+<code>uniq -c</code> in your pipeline?<br />
+</li>
+<li>Why do we use <code>sort -nr</code> at the end (what do
+<code>-n</code> and <code>-r</code> mean)?</li>
+</ol></li>
+</ul>
+<blockquote>
+<p><strong>Grading focus:</strong> correctness of the pipeline, correct
+understanding of the order of operations, and clear explanation.</p>
+</blockquote>
+<hr />
+<h3 id="task-3-patient-level-summary-6-pts">Task 3 – Patient-level
+summary (6 pts)</h3>
+<p>Now summarize by <code>patient_id</code> (column #1).</p>
+<ol type="1">
+<li><p>Write a pipeline that prints:</p>
+<ul>
+<li>Each unique <code>patient_id</code>, and</li>
+<li>The number of records for that patient,</li>
+</ul>
+<p>ordered from most to least.</p></li>
+<li><p>In your worksheet, include:</p>
+<ul>
+<li>The pipeline.</li>
+<li>The first <strong>10</strong> lines of its output (copy from your
+terminal).</li>
+</ul></li>
+<li><p>Answer:</p>
+<ul>
+<li>Which patient has the most records, and how many?<br />
+</li>
+<li>Which patient has the second-most records, and how many?</li>
+</ul></li>
+<li><p>In 2–3 sentences, explain at least <strong>one</strong> way a
+clinician or analyst could use this information<br />
+(for example, identifying high-risk patients or heavy service users, or
+checking for suspicious data duplication).</p></li>
+</ol>
+<blockquote>
+<p><strong>Grading focus:</strong> correct aggregation logic and ability
+to connect the summary to a real biomedical informatics use case.</p>
+</blockquote>
+<hr />
+<h3 id="task-4-ai-prompt-and-verification-log-4-pts">Task 4 – AI prompt
+and verification log (4 pts)</h3>
+<p>This task checks that you can use AI tools <em>responsibly</em>, not
+that you use them at all. If you choose <strong>not</strong> to use AI
+for the rest of the assignment, you must still complete this small
+exercise with at least one AI interaction.</p>
+<ol type="1">
+<li><p>Choose <strong>one</strong> of your pipelines from Task 2 or Task
+3.</p></li>
+<li><p>Write a clear AI prompt that describes the problem and asks for a
+Unix pipeline. For example (you must write your own):</p>
+<blockquote>
+<p>“I have a CSV file named <code>vitals_large.csv</code> with columns
+<code>patient_id,test,result,timestamp</code>. I need a single Unix
+pipeline that skips the header, groups by <code>test</code>, counts how
+many times each test appears, and prints the top 5 tests with counts in
+descending order. Please give just the command, and briefly explain each
+step.”</p>
+</blockquote></li>
+<li><p>Run your prompt in an allowed AI tool and copy the AI’s suggested
+command into your worksheet.</p></li>
+<li><p>Verify the AI command by running at least these checks in Cloud
+Shell:</p>
+<ul>
+<li>Show the first few lines of the file (e.g.,
+<code>head -n 3 vitals_large.csv</code>) and confirm the column
+order.</li>
+<li>Run a <strong>partial</strong> pipeline (for example, up to
+<code>cut</code> or <code>uniq -c</code>) and inspect the output.</li>
+<li>Run the full pipeline and compare it to your own solution and/or a
+small manual spot-check on <code>vitals_small.csv</code>.</li>
+</ul></li>
+<li><p>In the worksheet, write a short <strong>AI-use &amp; verification
+log</strong> (about half a page) including:</p>
+<ul>
+<li>The exact prompt you used.</li>
+<li>The exact command returned by the AI.</li>
+<li>The specific commands you ran to verify it (copy/paste them).</li>
+<li>Whether you needed to modify the AI’s command (if yes, how and
+why).</li>
+<li>A 2–3 sentence reflection: What did this teach you about pipelines
+and AI tools?</li>
+</ul></li>
+</ol>
+<blockquote>
+<p><strong>Grading focus:</strong> depth of verification, clarity of
+reflection, evidence that you understood and evaluated the AI output
+rather than copying it blindly.</p>
+</blockquote>
+<hr />
+<h2 id="deliverables">5. Deliverables</h2>
+<p>Unless your instructor specifies otherwise, submit the following to
+Brightspace/OpenLab:</p>
+<ol type="1">
+<li><strong>Completed Assignment 3 worksheet</strong> (docx or PDF)
+containing:
+<ul>
+<li>All commands requested.</li>
+<li>All numerical answers.</li>
+<li>Explanations and reflections.</li>
+<li>The AI-use &amp; verification log for Task 4.</li>
+</ul></li>
+<li>(Optional, if required) <strong>Screenshot</strong> of your terminal
+showing the final pipeline and output for at least one task (for
+example, the top-5 tests or the patient summary).</li>
+</ol>
+<p>Make sure your name and course information appear on the first page
+of the worksheet.</p>
+<hr />
+<h2 id="rubric-suggested">6. Rubric (suggested)</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task 1 – counts &amp; sanity checks</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Task 2 – unique tests &amp; frequencies</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Task 3 – patient-level summary &amp; reflection</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Task 4 – AI prompt, verification &amp; reflection</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>20</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor may adjust point values or add extra credit, but the
+<strong>skills</strong> assessed will remain the same.</p>
+<hr />
+<h2 id="hints-and-common-pitfalls">7. Hints and common pitfalls</h2>
+<ul>
+<li>Always <strong>skip the header</strong> before counting records or
+grouping by a column. A common mistake is to forget
+<code>tail -n +2</code>.</li>
+<li><code>uniq</code> only removes or counts <strong>adjacent</strong>
+duplicates. Use <code>sort</code> before <code>uniq</code> when you want
+global counts.</li>
+<li>When something looks wrong, run only the <strong>first half</strong>
+of your pipeline and inspect the output. Most bugs are visible
+early.</li>
+<li>When using AI, never assume the answer is correct. Treat AI as a
+junior assistant whose work must be checked.</li>
+</ul>
+<p>If you get stuck on a specific step, note which command is confusing
+and bring that question to lab or office hours.</p>
+</body>
+</html>
