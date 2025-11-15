@@ -4,6 +4,18 @@
 > **Estimated time:** 60–75 minutes  
 > **Environment:** Google Cloud Shell (real Bash), using the BIO2110 UNIX repo
 
+## Contents
+
+- [Lab Overview and Goals](#lab-overview-and-goals)
+- [Before You Start: Open Google Cloud Shell and Clone the Repo](#before-you-start-open-google-cloud-shell-and-clone-the-repo)
+- [Part 1: Exploring vitals.csv with Basic Filters](#part-1-exploring-vitalscsv-with-basic-filters)
+- [Part 2: Working with Columns Using cut](#part-2-working-with-columns-using-cut)
+- [Part 3: Counting and Summarizing with sort and uniq -c](#part-3-counting-and-summarizing-with-sort-and-uniq--c)
+- [Part 4: Pipelines on vitals_large.csv](#part-4-pipelines-on-vitals_largecsv)
+- [Part 5: AI-Assisted Pipeline Design](#part-5-ai-assisted-pipeline-design)
+- [Reflection and Clean Up](#reflection-and-clean-up)
+
+
 ---
 
 ## 1. Goals

@@ -5,6 +5,19 @@
 > **Environment:** Google Cloud Shell (BIO2110-UNIX-shell repo)  
 > **Related module:** Module 3 – Pipes & Filters
 
+## Contents
+
+- [Purpose of Assignment 3](#purpose-of-assignment-3)
+- [Learning Outcomes](#learning-outcomes)
+- [Files and Data You Will Use](#files-and-data-you-will-use)
+- [Task 1: Simple Pipelines on vitals.csv](#task-1-simple-pipelines-on-vitalscsv)
+- [Task 2: Frequency Counts and Top-K Queries](#task-2-frequency-counts-and-top-k-queries)
+- [Task 3: Answering Biomedical Questions with Pipelines](#task-3-answering-biomedical-questions-with-pipelines)
+- [Task 4: AI-Use Transparency & Verification Log](#task-4-ai-use-transparency--verification-log)
+- [What to Submit](#what-to-submit)
+- [Grading and Rubric Overview](#grading-and-rubric-overview)
+- [Academic Integrity and Collaboration for This Assignment](#academic-integrity-and-collaboration-for-this-assignment)
+
 ---
 
 ## 1. Purpose and learning outcomes
