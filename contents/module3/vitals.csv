@@ -1,0 +1,6 @@
+patient_id,test,result
+p001,heart_rate,72
+p002,heart_rate,80
+p001,temp,98.6
+p003,heart_rate,65
+p002,bp,120/80
